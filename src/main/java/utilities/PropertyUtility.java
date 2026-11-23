@@ -1,0 +1,33 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class PropertyUtility {
+
+    private Properties properties = new Properties();
+
+    public PropertyUtility() {
+
+        try {
+
+            FileInputStream file =
+                    new FileInputStream("src/test/resources/config.properties");
+
+            properties.load(file);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+    }
+    
+    public String getProperty(String key) {
+
+        return properties.getProperty(key);
+
+    }
+
+}
